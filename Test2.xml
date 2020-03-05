@@ -1,0 +1,59 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head><!-- ODK Aggregate upload time: 2020-03-05T05:40:02.6Z on https://sandbox.aggregate.opendatakit.org -->
+    <h:title>Test2</h:title>
+    <model>
+      <instance>
+        <data id="build_Test2_1583386804">
+          <meta>
+            <instanceID/>
+          </meta>
+          <name/>
+          <age/>
+          <sex/>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/name:label">
+            <value>What is the child's name?</value>
+          </text>
+          <text id="/data/age:label">
+            <value>Child age</value>
+          </text>
+          <text id="/data/sex:label">
+            <value>Gender of the Child</value>
+          </text>
+          <text id="/data/sex:option0">
+            <value>Female</value>
+          </text>
+          <text id="/data/sex:option1">
+            <value>Male</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/name" type="string" required="true()"/>
+      <bind nodeset="/data/age" type="int"/>
+      <bind nodeset="/data/sex" type="select1" required="true()"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/name">
+      <label ref="jr:itext('/data/name:label')"/>
+    </input>
+    <input ref="/data/age">
+      <label ref="jr:itext('/data/age:label')"/>
+    </input>
+    <select1 ref="/data/sex">
+      <label ref="jr:itext('/data/sex:label')"/>
+      <item>
+        <label ref="jr:itext('/data/sex:option0')"/>
+        <value>1</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/sex:option1')"/>
+        <value>2</value>
+      </item>
+    </select1>
+  </h:body>
+</h:html>
